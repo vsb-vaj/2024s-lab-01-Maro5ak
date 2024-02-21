@@ -10,6 +10,13 @@
 const drawTriangle = (length = 5) => {
   
     // ... write code ...
+    for (let i = 1; i <= length; i++) {
+        let triangle = "";
+        for (let j = 0; j < i; j++) {
+            triangle += "* ";
+        }
+        console.log(triangle);
+    }
 };
 
 // 2#  ========== BONUS =======================
@@ -29,6 +36,23 @@ const drawTriangle = (length = 5) => {
 // Your code:
 const drawJavascriptWord = (word = "javascript") => {
   // ... write code ...
+
+    word = word.toUpperCase();
+    let fill = word.length;
+    for (let i = 0; i <= word.length; i++) {
+        let message = "";
+        let separator = "";
+        for (let j = 0; j < fill; j++) {
+            message += separator + "*";
+            separator = " ";
+        }
+        for (let j = fill; j < word.length; j++) {
+            message += separator + word[j];
+            separator = " ";
+        }
+        fill--;
+        console.log(message);
+    }
 };
 
 
@@ -48,5 +72,12 @@ const drawJavascriptWord = (word = "javascript") => {
 
 // Your code:
 const getVehiclesAndTopSpeed = (vehicles) => {
-  
+    function compare(x, y) {
+        if(x.topSpeed < y.topSpeed) return 1;
+        if(x.topSpeed > y.topSpeed) return -1;
+        else return 0;
+    }
+    let result = [];
+    vehicles.forEach((x) => result.push({name: x.name, topSpeed: Math.max(...x.measuredSpeeds)}));
+    return result.sort(compare);
 };

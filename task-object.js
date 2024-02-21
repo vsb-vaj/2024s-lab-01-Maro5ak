@@ -10,7 +10,7 @@
 
 // Your code:
 const volumeOfBox = (obj) => {
-
+    return obj.width * obj.length * obj.height;
 };
   
 // 2 ----
@@ -20,8 +20,7 @@ const volumeOfBox = (obj) => {
 
 // Your code:
 const personObject = (firstname, lastname, age) => {
-
-
+    return {firstname: firstname, lastname: lastname, age: age};
 };
 
 // 3 ----
@@ -35,7 +34,9 @@ const personObject = (firstname, lastname, age) => {
 
 //Your code:
 const getBudgets = (persons) => {
-
+    let sum = 0;
+    persons.forEach((x) => sum += x.budget);
+    return sum;
 };
 
 // 4 ----
@@ -46,6 +47,10 @@ const getBudgets = (persons) => {
 
 // Your code:
 const sortVehiclesByPrice = (vehicles) => {
-  
-
+    function compare(x, y) {
+        if(x.price < y.price) return -1;
+        if(x.price > y.price) return 1;
+        else return 0;
+    }
+    return vehicles.sort(compare);
 };
